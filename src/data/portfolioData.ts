@@ -265,38 +265,6 @@ export const PROJECTS: ProjectItem[] = [
       'Automated log archiving and disk reclamation scripts ensuring 100% filesystem availability'
     ],
     stack: ['Shell', 'Bash', 'Linux Syslog', 'Cron', 'Webhook Integrations']
-  },
-  {
-    id: 'event-driven-order-platform',
-    title: 'Event-Driven Order Platform',
-    category: 'Backend',
-    isCaseStudy: true,
-    headline: 'Distributed Microservices Architecture with Apache Kafka',
-    description: 'System design case study: Resilient order processing ecosystem splitting Order, Inventory, and Notification domains via asynchronous event streams.',
-    metrics: 'Exactly-once delivery semantics • Automated Dead Letter Queue (DLQ) failover',
-    architectureHighlights: [
-      'Decoupled microservices exchanging Protobuf/JSON events across Apache Kafka topics',
-      'Strict idempotency key caching in Redis to prevent duplicate charges or shipments',
-      'Circuit breakers and retry policies isolating downstream service degradations',
-      'End-to-end distributed tracing and Prometheus telemetry capturing SLA thresholds'
-    ],
-    stack: ['Python', 'FastAPI', 'Apache Kafka', 'PostgreSQL', 'Redis', 'Docker', 'Prometheus']
-  },
-  {
-    id: 'k8s-iac-api',
-    title: 'K8s-Deployed API with IaC',
-    category: 'DevOps',
-    isCaseStudy: true,
-    headline: 'Cloud-Native High-Availability Cluster with Terraform & AWS EKS',
-    description: 'System design case study: Production infrastructure as code automating complete multi-tier AWS deployment with auto-scaling and database read/write replicas.',
-    metrics: 'Automated Terraform provisioning • Multi-replica PgBouncer connection pooling',
-    architectureHighlights: [
-      'Terraform IaC provisioning Multi-AZ VPC, EKS cluster, RDS PostgreSQL and ElastiCache Redis',
-      'PgBouncer connection pooling orchestrating read/write split across master and replica DBs',
-      'Horizontal Pod Autoscaler (HPA) responding dynamically to CPU and request spikes',
-      'Nginx Ingress controller with automated Let’s Encrypt TLS certificates and rate limiting'
-    ],
-    stack: ['Terraform', 'AWS EKS', 'Kubernetes', 'Python', 'PostgreSQL', 'PgBouncer', 'GitHub Actions']
   }
 ];
 

@@ -4,98 +4,97 @@
 
 @layer base {
   :root {
-    --bg-primary: #0A0E14;
-    --bg-card: #111827;
-    --text-primary: #E5E7EB;
-    --text-muted: #9CA3AF;
-    --border-color: #1F2937;
-  }
-
-  html:not(.dark) {
-    --bg-primary: #F8FAFC;
+    --bg-primary: #FFFFFF;
     --bg-card: #FFFFFF;
     --text-primary: #0F172A;
     --text-muted: #64748B;
     --border-color: #E2E8F0;
+    --brand-blue: #2563EB;
+  }
+
+  html.dark {
+    --bg-primary: #080C14;
+    --bg-card: #0F172A;
+    --text-primary: #F8FAFC;
+    --text-muted: #94A3B8;
+    --border-color: #1E293B;
+    --brand-blue: #3B82F6;
   }
 
   body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
   }
 
   /* Custom subtle scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0A0E14;
-  }
-  html:not(.dark) ::-webkit-scrollbar-track {
-    background: #F1F5F9;
+    background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1F2937;
-    border-radius: 4px;
-  }
-  html:not(.dark) ::-webkit-scrollbar-thumb {
     background: #CBD5E1;
+    border-radius: 9999px;
+  }
+  html.dark ::-webkit-scrollbar-thumb {
+    background: #1E293B;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #22D3EE;
+    background: #2563EB;
   }
 }
 
 @layer utilities {
   .bg-grid-pattern {
-    background-image: radial-gradient(rgba(34, 211, 238, 0.08) 1px, transparent 1px);
-    background-size: 32px 32px;
+    background-image: radial-gradient(rgba(37, 99, 235, 0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
-  html:not(.dark) .bg-grid-pattern {
-    background-image: radial-gradient(rgba(14, 165, 233, 0.12) 1px, transparent 1px);
-    background-size: 32px 32px;
+  html.dark .bg-grid-pattern {
+    background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
 
   .glass-card {
-    background: rgba(17, 24, 39, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(31, 41, 55, 0.8);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
   }
-  html:not(.dark) .glass-card {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(226, 232, 240, 0.9);
+  html.dark .glass-card {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(30, 41, 59, 0.9);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
   }
 
-  .glass-card-hover {
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  .text-gradient-sharp-blue {
+    background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 50%, #00D2FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  .glass-card-hover:hover {
-    border-color: rgba(34, 211, 238, 0.4);
-    box-shadow: 0 12px 30px -10px rgba(34, 211, 238, 0.15);
-  }
-  html:not(.dark) .glass-card-hover:hover {
-    border-color: rgba(14, 165, 233, 0.5);
-    box-shadow: 0 12px 30px -10px rgba(14, 165, 233, 0.15);
+  html.dark .text-gradient-sharp-blue {
+    background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #00D2FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .text-gradient-teal-indigo {
-    background: linear-gradient(135deg, #22D3EE 0%, #818CF8 50%, #C084FC 100%);
+    background: linear-gradient(135deg, #2563EB 0%, #3B82F6 50%, #00D2FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
-  .text-gradient-subtle {
-    background: linear-gradient(180deg, #FFFFFF 0%, #9CA3AF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  html:not(.dark) .text-gradient-subtle {
-    background: linear-gradient(180deg, #0F172A 0%, #475569 100%);
+  html.dark .text-gradient-teal-indigo {
+    background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #00D2FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

@@ -52,26 +52,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenQuoteModal
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-cyber-bg/85 dark:bg-cyber-bg/85 bg-white/90 backdrop-blur-md border-b border-cyber-border dark:border-cyber-border border-slate-200 py-3 shadow-lg shadow-black/10'
-          : 'bg-transparent py-5'
+          ? 'bg-white/95 dark:bg-cyber-bg/90 backdrop-blur-md border-b border-slate-200 dark:border-cyber-border py-3 shadow-md dark:shadow-black/20'
+          : 'bg-transparent py-4 sm:py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand / Monospace Mark */}
+        {/* Brand Logo */}
         <a
           href="#"
-          className="group flex items-center gap-3 font-mono text-sm tracking-tight text-cyber-text dark:text-cyber-text text-slate-900"
+          className="group flex items-center gap-2.5 sm:gap-3 font-mono text-sm tracking-tight text-slate-900 dark:text-cyber-text"
           id="nav-logo"
         >
-          <div className="relative flex items-center justify-center w-8 h-8 rounded-md bg-cyber-card dark:bg-cyber-card bg-slate-100 border border-cyber-border dark:border-cyber-border border-slate-300 group-hover:border-cyber-teal transition-colors">
-            <span className="text-cyber-teal font-bold text-xs">&lt;CKM/&gt;</span>
+          <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-blue-50 dark:bg-cyber-card border border-blue-200 dark:border-cyber-border group-hover:border-cyber-blue transition-colors shadow-sm">
+            <span className="text-cyber-blue font-bold text-xs">&lt;CKM/&gt;</span>
           </div>
           <div className="flex flex-col">
-            <span className="font-semibold tracking-wide text-xs sm:text-sm group-hover:text-cyber-teal transition-colors flex items-center gap-1.5">
+            <span className="font-semibold tracking-wide text-xs sm:text-sm text-slate-900 dark:text-white group-hover:text-cyber-blue transition-colors flex items-center gap-1.5">
               charles.dev
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-cyber-green animate-pulse" title="System Operational" />
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" title="System Operational" />
             </span>
-            <span className="text-[10px] text-cyber-muted dark:text-cyber-muted text-slate-500 hidden sm:inline-block">
+            <span className="text-[10px] text-slate-500 dark:text-cyber-muted hidden sm:inline-block">
               backend // ai // devops
             </span>
           </div>
@@ -83,7 +83,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenQuoteModal
             <a
               key={link.name}
               href={link.href}
-              className="text-cyber-muted dark:text-cyber-muted text-slate-600 hover:text-cyber-teal dark:hover:text-cyber-teal hover:text-cyan-600 transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-cyber-teal hover:after:w-full after:transition-all"
+              className="text-slate-600 dark:text-cyber-muted hover:text-cyber-blue dark:hover:text-cyber-blue-bright transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-cyber-blue hover:after:w-full after:transition-all font-medium"
             >
               {link.name}
             </a>
@@ -91,11 +91,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenQuoteModal
         </nav>
 
         {/* Controls & Actions */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* CLI Terminal Launcher */}
           <button
             onClick={onOpenTerminal}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-mono rounded bg-cyber-surface dark:bg-cyber-surface bg-slate-100 border border-cyber-border dark:border-cyber-border border-slate-300 text-cyber-teal hover:border-cyber-teal hover:shadow-glow-teal transition-all"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-mono rounded-lg bg-blue-50/80 dark:bg-cyber-surface border border-blue-200 dark:border-cyber-border text-cyber-blue hover:border-cyber-blue hover:shadow-glow-blue transition-all"
             title="Open Interactive Terminal (Ctrl + ~)"
             id="nav-terminal-btn"
           >
@@ -106,18 +106,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenQuoteModal
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded border border-cyber-border dark:border-cyber-border border-slate-300 text-cyber-muted hover:text-cyber-text dark:hover:text-white bg-cyber-card dark:bg-cyber-card bg-slate-100 transition-colors"
+            className="p-2 rounded-lg border border-slate-200 dark:border-cyber-border text-slate-600 dark:text-cyber-muted hover:text-slate-900 dark:hover:text-white bg-white dark:bg-cyber-card transition-colors shadow-sm"
             title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             aria-label="Toggle theme"
             id="theme-toggle"
           >
-            {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-600" />}
+            {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-cyber-blue" />}
           </button>
 
-          {/* Rate Sheet / Quote CTA */}
+          {/* Rate Sheet CTA */}
           <button
             onClick={triggerRateSheetDownload}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono rounded border border-cyber-indigo/50 bg-cyber-indigo/10 text-indigo-400 hover:bg-cyber-indigo/20 hover:text-indigo-300 transition-colors"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono rounded-lg border border-blue-200 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/60 transition-colors"
             title="Download Service Rate Sheet PDF"
             id="nav-ratesheet-btn"
           >
@@ -125,9 +125,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenQuoteModal
             <span>Rate Sheet</span>
           </button>
 
+          {/* Quote Button */}
           <button
             onClick={onOpenQuoteModal}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium rounded bg-cyber-teal text-slate-950 hover:bg-cyan-300 hover:shadow-glow-teal font-mono transition-all"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium rounded-lg bg-cyber-blue hover:bg-blue-600 text-white shadow-glow-blue font-mono transition-all font-semibold"
             id="nav-quote-btn"
           >
             <span>Get Quote</span>
@@ -137,7 +138,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenQuoteModal
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded text-cyber-muted hover:text-cyber-text border border-cyber-border"
+            className="lg:hidden p-2 rounded-lg text-slate-600 dark:text-cyber-muted hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-cyber-border bg-white dark:bg-cyber-card"
             aria-label="Open mobile menu"
             id="mobile-menu-toggle"
           >
@@ -148,26 +149,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenQuoteModal
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-cyber-bg/95 dark:bg-cyber-bg/95 bg-white/95 backdrop-blur-xl border-b border-cyber-border px-4 pt-3 pb-6 space-y-3 font-mono text-sm">
+        <div className="lg:hidden bg-white/98 dark:bg-cyber-bg/98 backdrop-blur-xl border-b border-slate-200 dark:border-cyber-border px-4 pt-3 pb-6 space-y-3 font-mono text-sm shadow-xl">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block py-2 text-cyber-muted hover:text-cyber-teal border-b border-cyber-border/40"
+              className="block py-2.5 text-slate-700 dark:text-cyber-muted hover:text-cyber-blue dark:hover:text-cyber-blue border-b border-slate-100 dark:border-cyber-border/40 font-medium"
             >
               {link.name}
             </a>
           ))}
-          <div className="pt-2 flex flex-col gap-2">
+          <div className="pt-3 flex flex-col gap-2.5">
             <button
               onClick={() => {
                 triggerRateSheetDownload();
                 setIsMobileMenuOpen(false);
               }}
-              className="flex items-center justify-center gap-2 w-full py-2 text-xs border border-cyber-border rounded bg-cyber-card text-cyber-text"
+              className="flex items-center justify-center gap-2 w-full py-2.5 text-xs border border-slate-200 dark:border-cyber-border rounded-lg bg-slate-50 dark:bg-cyber-card text-slate-800 dark:text-cyber-text font-medium"
             >
-              <Download className="w-3.5 h-3.5 text-cyber-teal" />
+              <Download className="w-3.5 h-3.5 text-cyber-blue" />
               Download Rate Sheet PDF
             </button>
             <button
@@ -175,7 +176,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenQuoteModal
                 onOpenTerminal();
                 setIsMobileMenuOpen(false);
               }}
-              className="flex items-center justify-center gap-2 w-full py-2 text-xs border border-cyber-teal/40 rounded bg-cyber-surface text-cyber-teal"
+              className="flex items-center justify-center gap-2 w-full py-2.5 text-xs border border-blue-200 dark:border-blue-900/60 rounded-lg bg-blue-50 dark:bg-cyber-surface text-cyber-blue font-medium"
             >
               <Terminal className="w-3.5 h-3.5" />
               Launch CLI Terminal ($ whoami)

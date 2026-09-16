@@ -44,42 +44,42 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ['#22D3EE', '#6366F1', '#34D399'],
+          colors: ['#2563EB', '#38BDF8', '#10B981'],
         });
       } catch (err) {
-        // Confetti fallback
+        // Fallback
       }
 
-      // Automatically trigger the Rate Sheet PDF Download
+      // Automatically trigger Rate Sheet PDF Download
       triggerRateSheetDownload();
     }, 800);
   };
 
   return (
-    <section id="services" className="relative py-24 border-b border-cyber-border/80">
+    <section id="services" className="relative py-20 sm:py-24 border-b border-slate-200 dark:border-cyber-border/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-4">
           <div>
-            <div className="font-mono text-xs text-cyber-teal tracking-widest uppercase mb-2">
+            <div className="font-mono text-xs text-cyber-blue font-semibold tracking-widest uppercase mb-2">
               // 05 — SERVICE PACKAGES & TRANSPARENT PRICING
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold font-heading text-slate-900 dark:text-white">
               Work With Me
             </h2>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <button
               onClick={triggerRateSheetDownload}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-md font-mono text-xs border border-cyber-border bg-cyber-card hover:bg-cyber-surface text-cyber-teal hover:border-cyber-teal transition-all"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg font-mono text-xs border border-slate-200 dark:border-cyber-border bg-white dark:bg-cyber-card hover:bg-slate-50 dark:hover:bg-cyber-surface text-slate-700 dark:text-cyber-text hover:border-cyber-blue transition-all shadow-sm font-medium"
               id="services-download-ratesheet"
             >
-              <Download className="w-3.5 h-3.5" />
-              <span>Download Rate Sheet PDF</span>
+              <Download className="w-3.5 h-3.5 text-cyber-blue" />
+              <span>Rate Sheet PDF</span>
             </button>
             <button
               onClick={onOpenQuoteModal}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-md font-mono text-xs bg-cyber-teal text-slate-950 font-semibold hover:bg-cyan-300 transition-all shadow-glow-teal"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-mono text-xs bg-cyber-blue hover:bg-blue-600 text-white font-semibold shadow-glow-blue transition-all"
               id="services-instant-quote-btn"
             >
               <span>Instant Quote</span>
@@ -89,15 +89,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         </div>
 
         {/* Category Tabs */}
-        <div className="flex overflow-x-auto pb-4 gap-2 mb-10 no-scrollbar border-b border-cyber-border/60">
+        <div className="flex overflow-x-auto pb-3 gap-2 mb-8 sm:mb-10 no-scrollbar border-b border-slate-200 dark:border-cyber-border/60">
           {SERVICE_CATEGORIES.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategoryTab(cat.id)}
-              className={`whitespace-nowrap px-4 py-2.5 rounded-lg font-mono text-xs transition-all ${
+              className={`whitespace-nowrap px-3.5 sm:px-4 py-2 rounded-lg font-mono text-xs transition-all ${
                 activeCategoryTab === cat.id
-                  ? 'bg-cyber-teal text-slate-950 font-semibold shadow-glow-teal'
-                  : 'bg-cyber-card hover:bg-cyber-surface border border-cyber-border text-cyber-muted hover:text-cyber-text'
+                  ? 'bg-cyber-blue text-white font-bold shadow-glow-blue'
+                  : 'bg-white dark:bg-cyber-card hover:bg-slate-50 dark:hover:bg-cyber-surface border border-slate-200 dark:border-cyber-border text-slate-600 dark:text-cyber-muted hover:text-slate-900 dark:hover:text-cyber-text font-medium'
               }`}
             >
               {cat.title}
@@ -106,13 +106,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         </div>
 
         {/* Category Summary Header */}
-        <div className="mb-8 p-4 rounded-xl bg-cyber-surface/40 border border-cyber-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="mb-8 p-4 sm:p-5 rounded-xl bg-slate-50 dark:bg-cyber-surface/40 border border-slate-200 dark:border-cyber-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <span className="text-[11px] font-mono text-cyber-teal block">{activeCategory.kicker}</span>
+            <span className="text-[11px] font-mono text-cyber-blue block font-semibold">{activeCategory.kicker}</span>
             <h3 className="text-lg font-bold font-heading text-slate-900 dark:text-white mt-0.5">
               {activeCategory.title}
             </h3>
-            <p className="text-xs text-cyber-muted max-w-2xl mt-1 font-sans">
+            <p className="text-xs text-slate-600 dark:text-cyber-muted max-w-2xl mt-1 font-sans">
               {activeCategory.summary}
             </p>
           </div>
@@ -121,7 +121,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               setFormData((prev) => ({ ...prev, category: activeCategory.title }));
               onOpenQuoteModal();
             }}
-            className="shrink-0 px-3.5 py-2 rounded font-mono text-xs border border-cyber-indigo/50 bg-cyber-indigo/10 text-indigo-400 hover:bg-cyber-indigo/20 transition-all"
+            className="shrink-0 px-3.5 py-2 rounded-lg font-mono text-xs border border-blue-200 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 hover:bg-blue-100 transition-all font-medium"
           >
             Scope a {activeCategory.title} Project →
           </button>
@@ -134,46 +134,46 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               key={tier.id}
               className={`relative rounded-xl p-6 sm:p-7 flex flex-col justify-between backdrop-blur-md border transition-all duration-300 ${
                 tier.popular
-                  ? 'bg-cyber-card/90 dark:bg-cyber-card/90 bg-white/90 border-cyber-teal shadow-glow-teal/20 scale-[1.02]'
-                  : 'bg-cyber-card/60 dark:bg-cyber-card/60 bg-white/70 border-cyber-border hover:border-cyber-borderLight shadow-card-dark'
+                  ? 'bg-white dark:bg-cyber-card border-cyber-blue shadow-glow-blue/25 scale-[1.02]'
+                  : 'bg-white dark:bg-cyber-card/80 border-slate-200 dark:border-cyber-border hover:border-slate-300 dark:hover:border-cyber-borderLight shadow-card-light dark:shadow-card-dark'
               }`}
             >
               {tier.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-cyber-teal text-slate-950 font-mono text-[10px] font-bold uppercase tracking-wider shadow-sm">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-cyber-blue text-white font-mono text-[10px] font-bold uppercase tracking-wider shadow-sm">
                   Recommended Tier
                 </div>
               )}
 
               <div>
                 {/* Tier Name */}
-                <div className="font-mono text-xs text-cyber-teal uppercase tracking-wider mb-2">
+                <div className="font-mono text-xs text-cyber-blue uppercase tracking-wider mb-2 font-semibold">
                   // {tier.name}
                 </div>
 
                 {/* Price Display */}
-                <div className="text-2xl sm:text-3xl font-bold font-heading text-slate-900 dark:text-white mb-2">
+                <div className="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white mb-2">
                   {tier.priceRange}
                 </div>
 
                 {/* Timeframe */}
-                <div className="flex items-center gap-1.5 text-xs font-mono text-cyber-muted mb-4 pb-4 border-b border-cyber-border/60">
-                  <Clock className="w-3.5 h-3.5 text-cyber-teal" />
+                <div className="flex items-center gap-1.5 text-xs font-mono text-slate-500 dark:text-cyber-muted mb-4 pb-4 border-b border-slate-200 dark:border-cyber-border/60">
+                  <Clock className="w-3.5 h-3.5 text-cyber-blue" />
                   <span>Estimated Delivery: {tier.timeframe}</span>
                 </div>
 
                 {/* Description */}
-                <p className="text-xs text-cyber-muted dark:text-cyber-muted text-slate-600 leading-relaxed mb-6 font-sans">
+                <p className="text-xs text-slate-600 dark:text-cyber-muted leading-relaxed mb-6 font-sans">
                   {tier.description}
                 </p>
 
                 {/* Deliverables List */}
                 <div className="space-y-2.5 mb-6">
-                  <span className="text-[10px] font-mono text-cyber-teal uppercase tracking-wider block">
+                  <span className="text-[10px] font-mono text-blue-700 dark:text-blue-400 uppercase tracking-wider block font-semibold">
                     Deliverables:
                   </span>
                   {tier.deliverables.map((deliv, dIdx) => (
-                    <div key={dIdx} className="flex items-start gap-2.5 text-xs text-cyber-text dark:text-cyber-text text-slate-700">
-                      <Check className="w-3.5 h-3.5 text-cyber-green shrink-0 mt-0.5" />
+                    <div key={dIdx} className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-cyber-text">
+                      <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                       <span>{deliv}</span>
                     </div>
                   ))}
@@ -190,10 +190,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   }));
                   onOpenQuoteModal();
                 }}
-                className={`w-full py-2.5 rounded-md font-mono text-xs font-semibold transition-all flex items-center justify-center gap-2 ${
+                className={`w-full py-2.5 rounded-lg font-mono text-xs font-semibold transition-all flex items-center justify-center gap-2 ${
                   tier.popular
-                    ? 'bg-cyber-teal text-slate-950 hover:bg-cyan-300 shadow-glow-teal'
-                    : 'bg-cyber-surface border border-cyber-border hover:border-cyber-teal text-cyber-text hover:text-cyber-teal'
+                    ? 'bg-cyber-blue text-white hover:bg-blue-600 shadow-glow-blue'
+                    : 'bg-slate-100 dark:bg-cyber-surface border border-slate-200 dark:border-cyber-border hover:border-cyber-blue text-slate-800 dark:text-cyber-text hover:text-cyber-blue'
                 }`}
               >
                 <span>Select & Get Quote</span>
@@ -204,15 +204,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         </div>
 
         {/* Scope Notes & Terms Block */}
-        <div className="p-6 rounded-xl bg-cyber-card/40 border border-cyber-border/80">
-          <div className="flex items-center gap-2 font-mono text-xs text-cyber-indigo mb-3">
+        <div className="p-6 rounded-xl bg-slate-50 dark:bg-cyber-card/40 border border-slate-200 dark:border-cyber-border/80 shadow-sm">
+          <div className="flex items-center gap-2 font-mono text-xs text-cyber-blue mb-3 font-semibold">
             <ShieldCheck className="w-4 h-4" />
-            <span className="font-semibold uppercase tracking-wider">Engagement Terms & Scope Notes:</span>
+            <span className="uppercase tracking-wider">Engagement Terms & Scope Notes:</span>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-cyber-muted">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-600 dark:text-cyber-muted">
             {SERVICE_NOTES.map((note, nIdx) => (
               <div key={nIdx} className="flex items-start gap-2">
-                <span className="text-cyber-indigo font-bold">•</span>
+                <span className="text-cyber-blue font-bold">•</span>
                 <span>{note}</span>
               </div>
             ))}
@@ -222,37 +222,37 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
       {/* Interactive Get A Quote Modal */}
       {isQuoteModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="relative max-w-xl w-full max-h-[90vh] overflow-y-auto rounded-2xl bg-cyber-card border border-cyber-border p-6 sm:p-8 shadow-2xl space-y-6">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md">
+          <div className="relative max-w-xl w-full max-h-[90vh] overflow-y-auto rounded-2xl bg-white dark:bg-cyber-card border border-slate-200 dark:border-cyber-border p-6 sm:p-8 shadow-2xl space-y-6">
             <div className="flex items-start justify-between">
               <div>
-                <span className="text-xs font-mono text-cyber-teal uppercase tracking-wider block">
+                <span className="text-xs font-mono text-cyber-blue uppercase tracking-wider block font-semibold">
                   // Transparent Scope & Proposal Request
                 </span>
-                <h3 className="text-2xl font-bold font-heading text-white mt-1">
+                <h3 className="text-2xl font-bold font-heading text-slate-900 dark:text-white mt-1">
                   Get a Project Quote
                 </h3>
-                <p className="text-xs font-mono text-cyber-muted mt-1">
+                <p className="text-xs font-mono text-slate-500 dark:text-cyber-muted mt-1">
                   Submitting will automatically trigger the official <strong>Service & Rate Sheet PDF</strong> download.
                 </p>
               </div>
               <button
                 onClick={onCloseQuoteModal}
-                className="p-2 rounded-lg bg-cyber-surface border border-cyber-border text-cyber-muted hover:text-white"
+                className="p-2 rounded-lg bg-slate-100 dark:bg-cyber-surface border border-slate-200 dark:border-cyber-border text-slate-600 dark:text-cyber-muted hover:text-slate-900 dark:hover:text-white"
               >
                 ✕
               </button>
             </div>
 
             {isSubmitted ? (
-              <div className="p-6 rounded-xl bg-cyber-surface border border-cyber-green/50 text-center space-y-4">
-                <div className="w-12 h-12 rounded-full bg-cyber-green/20 border border-cyber-green mx-auto flex items-center justify-center text-cyber-green">
+              <div className="p-6 rounded-xl bg-slate-50 dark:bg-cyber-surface border border-emerald-500/50 text-center space-y-4">
+                <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-500 mx-auto flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                   <Check className="w-6 h-6" />
                 </div>
-                <h4 className="text-lg font-bold font-heading text-white">
+                <h4 className="text-lg font-bold font-heading text-slate-900 dark:text-white">
                   Quote Request Received!
                 </h4>
-                <p className="text-xs text-cyber-muted max-w-md mx-auto leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-cyber-muted max-w-md mx-auto leading-relaxed font-sans">
                   Thank you, <strong>{formData.name}</strong>. Your rate sheet PDF has been downloaded automatically.
                   Charles will review your scope for <strong>{formData.category}</strong> and reply to <strong>{formData.email}</strong> within 24 hours.
                 </p>
@@ -260,7 +260,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
                   <button
                     onClick={triggerRateSheetDownload}
-                    className="w-full sm:w-auto px-4 py-2 rounded-md font-mono text-xs border border-cyber-teal text-cyber-teal bg-cyber-teal/10 hover:bg-cyber-teal/20 transition-all flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-4 py-2 rounded-lg font-mono text-xs border border-cyber-blue text-cyber-blue bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 transition-all flex items-center justify-center gap-2 font-semibold"
                   >
                     <Download className="w-3.5 h-3.5" />
                     Download PDF Again
@@ -270,7 +270,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                       setIsSubmitted(false);
                       onCloseQuoteModal();
                     }}
-                    className="w-full sm:w-auto px-4 py-2 rounded-md font-mono text-xs bg-cyber-surface border border-cyber-border text-cyber-text hover:border-cyber-borderLight"
+                    className="w-full sm:w-auto px-4 py-2 rounded-lg font-mono text-xs bg-slate-100 dark:bg-cyber-surface border border-slate-200 dark:border-cyber-border text-slate-800 dark:text-cyber-text hover:border-slate-300 font-medium"
                   >
                     Close Window
                   </button>
@@ -279,36 +279,36 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             ) : (
               <form onSubmit={handleFormSubmit} className="space-y-4 font-mono text-xs">
                 <div>
-                  <label className="block text-cyber-muted mb-1">Your Name *</label>
+                  <label className="block text-slate-600 dark:text-cyber-muted mb-1 font-medium">Your Name *</label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. Alex Henderson"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-cyber-surface border border-cyber-border focus:border-cyber-teal focus:outline-none text-cyber-text"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-cyber-surface border border-slate-200 dark:border-cyber-border focus:border-cyber-blue focus:outline-none text-slate-900 dark:text-cyber-text"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-cyber-muted mb-1">Email Address *</label>
+                  <label className="block text-slate-600 dark:text-cyber-muted mb-1 font-medium">Email Address *</label>
                   <input
                     type="email"
                     required
                     placeholder="alex@company.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-cyber-surface border border-cyber-border focus:border-cyber-teal focus:outline-none text-cyber-text"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-cyber-surface border border-slate-200 dark:border-cyber-border focus:border-cyber-blue focus:outline-none text-slate-900 dark:text-cyber-text"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-cyber-muted mb-1">Project Category</label>
+                    <label className="block text-slate-600 dark:text-cyber-muted mb-1 font-medium">Project Category</label>
                     <select
                       value={formData.category}
                       onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-cyber-surface border border-cyber-border focus:border-cyber-teal focus:outline-none text-cyber-text"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-cyber-surface border border-slate-200 dark:border-cyber-border focus:border-cyber-blue focus:outline-none text-slate-900 dark:text-cyber-text"
                     >
                       {SERVICE_CATEGORIES.map((c) => (
                         <option key={c.id} value={c.title}>
@@ -319,11 +319,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-cyber-muted mb-1">Target Budget Range</label>
+                    <label className="block text-slate-600 dark:text-cyber-muted mb-1 font-medium">Target Budget Range</label>
                     <select
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-cyber-surface border border-cyber-border focus:border-cyber-teal focus:outline-none text-cyber-text"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-cyber-surface border border-slate-200 dark:border-cyber-border focus:border-cyber-blue focus:outline-none text-slate-900 dark:text-cyber-text"
                     >
                       <option>₦250,000 – ₦500,000</option>
                       <option>₦500,000 – ₦1,000,000</option>
@@ -335,18 +335,18 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-cyber-muted mb-1">Project Overview & Objectives</label>
+                  <label className="block text-slate-600 dark:text-cyber-muted mb-1 font-medium">Project Overview & Objectives</label>
                   <textarea
                     rows={3}
                     placeholder="Briefly describe what you are building, current architecture, and timeline requirements..."
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-cyber-surface border border-cyber-border focus:border-cyber-teal focus:outline-none text-cyber-text"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-cyber-surface border border-slate-200 dark:border-cyber-border focus:border-cyber-blue focus:outline-none text-slate-900 dark:text-cyber-text"
                   />
                 </div>
 
-                <div className="p-3 rounded-lg bg-cyber-surface/60 border border-cyber-border/80 flex items-center gap-2.5 text-[11px] text-cyber-muted">
-                  <FileText className="w-4 h-4 text-cyber-teal shrink-0" />
+                <div className="p-3 rounded-lg bg-slate-50 dark:bg-cyber-surface/60 border border-slate-200 dark:border-cyber-border/80 flex items-center gap-2.5 text-[11px] text-slate-600 dark:text-cyber-muted">
+                  <FileText className="w-4 h-4 text-cyber-blue shrink-0" />
                   <span>
                     Submitting this form initiates an instant download of the complete <strong>2026 Rate Sheet PDF</strong> with detailed deliverable checklists.
                   </span>
@@ -355,7 +355,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 rounded-lg font-mono text-xs font-semibold bg-cyber-teal text-slate-950 hover:bg-cyan-300 transition-all flex items-center justify-center gap-2 shadow-glow-teal disabled:opacity-50"
+                  className="w-full py-3 rounded-lg font-mono text-xs font-semibold bg-cyber-blue text-white hover:bg-blue-600 transition-all flex items-center justify-center gap-2 shadow-glow-blue disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <span>Processing Scope & Generating PDF...</span>

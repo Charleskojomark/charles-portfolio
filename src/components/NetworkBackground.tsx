@@ -34,8 +34,8 @@ export const NetworkBackground: React.FC = () => {
     const positions = new Float32Array(nodeCount * 3);
     const colors = new Float32Array(nodeCount * 3);
 
-    const tealColor = new THREE.Color(0x22d3ee);
-    const indigoColor = new THREE.Color(0x818cf8);
+    const blueColor = new THREE.Color(0x2563eb);
+    const brightBlueColor = new THREE.Color(0x38bdf8);
 
     for (let i = 0; i < nodeCount; i++) {
       const x = (Math.random() - 0.5) * 32;
@@ -48,7 +48,7 @@ export const NetworkBackground: React.FC = () => {
       positions[i * 3 + 1] = y;
       positions[i * 3 + 2] = z;
 
-      const c = Math.random() > 0.4 ? tealColor : indigoColor;
+      const c = Math.random() > 0.4 ? blueColor : brightBlueColor;
       colors[i * 3] = c.r;
       colors[i * 3 + 1] = c.g;
       colors[i * 3 + 2] = c.b;

@@ -24,12 +24,12 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
     {
       command: 'system.init()',
       output: (
-        <div className="text-cyber-muted space-y-1">
-          <p className="text-cyber-teal font-bold">
+        <div className="text-slate-400 space-y-1">
+          <p className="text-blue-400 font-bold">
             CKM Distributed Systems Telemetry Console [v2.6.4]
           </p>
-          <p>Connected to node: <span className="text-cyber-green">europe-west1-prod-01</span> (RTT: 14.2ms)</p>
-          <p>Type <span className="text-cyber-teal font-semibold">&apos;help&apos;</span> for available commands.</p>
+          <p>Connected to node: <span className="text-emerald-400">europe-west1-prod-01</span> (RTT: 14.2ms)</p>
+          <p>Type <span className="text-blue-400 font-semibold">&apos;help&apos;</span> for available commands.</p>
         </div>
       ),
     },
@@ -50,7 +50,6 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [history]);
 
-  // Global key listener for Ctrl + ~ to toggle terminal
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && (e.key === '`' || e.key === '~')) {
@@ -77,29 +76,29 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
     switch (trimmed) {
       case 'help':
         output = (
-          <div className="space-y-1 text-cyber-muted">
-            <p className="text-cyber-text font-bold mb-1">// AVAILABLE COMMANDS:</p>
-            <p><span className="text-cyber-teal font-mono">whoami</span> — Display engineer identity & credentials</p>
-            <p><span className="text-cyber-teal font-mono">skills</span> — List primary backend & AI capabilities</p>
-            <p><span className="text-cyber-teal font-mono">projects</span> — View flagship systems & repos</p>
-            <p><span className="text-cyber-teal font-mono">curl /v1/health</span> — Ping telemetry health check endpoint</p>
-            <p><span className="text-cyber-teal font-mono">rates</span> — Print service packages & NGN rate sheet</p>
-            <p><span className="text-cyber-teal font-mono">download-rates</span> — Download official PDF rate sheet</p>
-            <p><span className="text-cyber-teal font-mono">quote</span> — Open project scope & quote form</p>
-            <p><span className="text-cyber-teal font-mono">contact</span> — Reach out via email, GitHub or LinkedIn</p>
-            <p><span className="text-cyber-teal font-mono">clear</span> — Flush console screen</p>
-            <p><span className="text-cyber-teal font-mono">exit</span> — Close terminal</p>
+          <div className="space-y-1 text-slate-400">
+            <p className="text-white font-bold mb-1">// AVAILABLE COMMANDS:</p>
+            <p><span className="text-blue-400 font-mono">whoami</span> — Display engineer identity & credentials</p>
+            <p><span className="text-blue-400 font-mono">skills</span> — List primary backend & AI capabilities</p>
+            <p><span className="text-blue-400 font-mono">projects</span> — View flagship systems & repos</p>
+            <p><span className="text-blue-400 font-mono">curl /v1/health</span> — Ping telemetry health check endpoint</p>
+            <p><span className="text-blue-400 font-mono">rates</span> — Print service packages & NGN rate sheet</p>
+            <p><span className="text-blue-400 font-mono">download-rates</span> — Download official PDF rate sheet</p>
+            <p><span className="text-blue-400 font-mono">quote</span> — Open project scope & quote form</p>
+            <p><span className="text-blue-400 font-mono">contact</span> — Reach out via email, GitHub or LinkedIn</p>
+            <p><span className="text-blue-400 font-mono">clear</span> — Flush console screen</p>
+            <p><span className="text-blue-400 font-mono">exit</span> — Close terminal</p>
           </div>
         );
         break;
 
       case 'whoami':
         output = (
-          <div className="text-cyber-muted space-y-1">
+          <div className="text-slate-400 space-y-1">
             <p className="text-white font-bold">{PROFILE.name}</p>
-            <p className="text-cyber-teal">{PROFILE.title}</p>
+            <p className="text-blue-400">{PROFILE.title}</p>
             <p>{PROFILE.location}</p>
-            <p className="text-xs text-cyber-text mt-2 max-w-xl">{PROFILE.heroSubtext}</p>
+            <p className="text-xs text-slate-300 mt-2 max-w-xl">{PROFILE.heroSubtext}</p>
           </div>
         );
         break;
@@ -107,13 +106,13 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
       case 'skills':
         output = (
           <div className="space-y-2">
-            <p className="text-cyber-teal font-bold">// CORE RUNTIMES & PLATFORMS:</p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 text-xs text-cyber-muted">
+            <p className="text-blue-400 font-bold">// CORE RUNTIMES & PLATFORMS:</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 text-xs text-slate-400">
               <span>• Python (FastAPI / Django)</span>
               <span>• LangGraph Multi-Agent</span>
               <span>• vLLM & AMD ROCm</span>
               <span>• PostgreSQL / Redis</span>
-              <span>• Apache Kafka / Celery</span>
+              <span>• Celery Workers / SQS</span>
               <span>• Docker / K8s / Terraform</span>
               <span>• GCP Cloud Run / AWS</span>
               <span>• Prometheus & Grafana</span>
@@ -125,11 +124,11 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
       case 'projects':
         output = (
           <div className="space-y-2">
-            <p className="text-cyber-teal font-bold">// FLAGSHIP REPOSITORIES:</p>
-            {PROJECTS.slice(0, 4).map((p) => (
+            <p className="text-blue-400 font-bold">// PRODUCTION REPOSITORIES:</p>
+            {PROJECTS.map((p) => (
               <div key={p.id} className="text-xs">
-                <span className="text-cyber-green font-bold">{p.title}</span> ({p.category}):{' '}
-                <span className="text-cyber-muted">{p.headline}</span>
+                <span className="text-emerald-400 font-bold">{p.title}</span> ({p.category}):{' '}
+                <span className="text-slate-400">{p.headline}</span>
               </div>
             ))}
           </div>
@@ -140,7 +139,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
       case 'curl /health':
       case 'health':
         output = (
-          <pre className="text-xs font-mono text-cyber-green bg-cyber-bg p-3 rounded border border-cyber-border overflow-x-auto">
+          <pre className="text-xs font-mono text-emerald-400 bg-black/50 p-3 rounded border border-slate-800 overflow-x-auto">
 {`HTTP/2 200 OK
 date: ${new Date().toUTCString()}
 content-type: application/json; charset=utf-8
@@ -153,7 +152,6 @@ x-latency: 12ms
   "p95_latency_reduction": "40%",
   "active_services": ["job-drone-etl", "klinik-vllm", "realnaijagist-cache"],
   "database": "postgres-primary-active",
-  "event_broker": "kafka-cluster-synced",
   "engineer": "Charles Kojo Mark"
 }`}
           </pre>
@@ -163,13 +161,13 @@ x-latency: 12ms
       case 'rates':
         output = (
           <div className="space-y-2 text-xs">
-            <p className="text-cyber-teal font-bold">// SERVICE PACKAGES (2026):</p>
+            <p className="text-blue-400 font-bold">// SERVICE PACKAGES (2026):</p>
             <p>1. Backend Development: ₦250,000 – ₦2,000,000</p>
             <p>2. AI Integration: ₦220,000 – ₦2,300,000</p>
             <p>3. DevOps & Cloud Infra: ₦140,000 – ₦1,400,000</p>
             <p>4. Full-Stack Bundles: ₦850,000 – ₦3,500,000+</p>
             <p>5. Retainers: ₦160,000 – ₦650,000/mo (Hourly: ₦12,000–₦18,000/hr)</p>
-            <p className="text-cyber-indigo">Type &apos;download-rates&apos; to get the official PDF.</p>
+            <p className="text-indigo-400">Type &apos;download-rates&apos; to get the official PDF.</p>
           </div>
         );
         break;
@@ -177,7 +175,7 @@ x-latency: 12ms
       case 'download-rates':
         triggerRateSheetDownload();
         output = (
-          <p className="text-cyber-green">
+          <p className="text-emerald-400">
             ✓ Triggered download: Charles-Kojo-Mark-Rate-Sheet-2026.pdf
           </p>
         );
@@ -185,15 +183,15 @@ x-latency: 12ms
 
       case 'quote':
         onOpenQuoteModal();
-        output = <p className="text-cyber-teal">✓ Opened project quote calculator modal.</p>;
+        output = <p className="text-blue-400">✓ Opened project quote calculator modal.</p>;
         break;
 
       case 'contact':
         output = (
           <div className="text-xs space-y-1">
-            <p>Email: <a href={`mailto:${PROFILE.email}`} className="text-cyber-teal underline">{PROFILE.email}</a></p>
-            <p>GitHub: <a href={PROFILE.github} target="_blank" rel="noreferrer" className="text-cyber-teal underline">{PROFILE.github}</a></p>
-            <p>LinkedIn: <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="text-cyber-teal underline">{PROFILE.linkedin}</a></p>
+            <p>Email: <a href={`mailto:${PROFILE.email}`} className="text-blue-400 underline">{PROFILE.email}</a></p>
+            <p>GitHub: <a href={PROFILE.github} target="_blank" rel="noreferrer" className="text-blue-400 underline">{PROFILE.github}</a></p>
+            <p>LinkedIn: <a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="text-blue-400 underline">{PROFILE.linkedin}</a></p>
           </div>
         );
         break;
@@ -212,7 +210,7 @@ x-latency: 12ms
       default:
         output = (
           <p className="text-red-400">
-            command not found: {cmdStr}. Type <span className="text-cyber-teal">&apos;help&apos;</span> for valid commands.
+            command not found: {cmdStr}. Type <span className="text-blue-400">&apos;help&apos;</span> for valid commands.
           </p>
         );
     }
@@ -249,22 +247,22 @@ x-latency: 12ms
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-      <div className="relative max-w-3xl w-full h-[540px] max-h-[90vh] flex flex-col rounded-xl bg-cyber-bg border border-cyber-border shadow-2xl overflow-hidden font-mono text-xs">
-        {/* Window Chrome Header */}
-        <div className="flex items-center justify-between px-4 py-2.5 bg-cyber-card border-b border-cyber-border select-none">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-md">
+      <div className="relative max-w-3xl w-full h-[520px] max-h-[90vh] flex flex-col rounded-xl bg-slate-950 border border-slate-800 shadow-2xl overflow-hidden font-mono text-xs">
+        {/* Header */}
+        <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900 border-b border-slate-800 select-none">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-red-500/80 cursor-pointer" onClick={onClose} />
             <span className="w-3 h-3 rounded-full bg-amber-500/80" />
-            <span className="w-3 h-3 rounded-full bg-green-500/80" />
-            <div className="ml-3 flex items-center gap-1.5 text-cyber-muted text-[11px]">
-              <TerminalIcon className="w-3.5 h-3.5 text-cyber-teal" />
+            <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
+            <div className="ml-3 flex items-center gap-1.5 text-slate-400 text-[11px]">
+              <TerminalIcon className="w-3.5 h-3.5 text-blue-400" />
               <span>charles@prod-mesh:~ (zsh)</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 text-cyber-muted">
-            <span className="text-[10px] hidden sm:inline">Press Esc or Ctrl+~ to close</span>
+          <div className="flex items-center gap-2 text-slate-400">
+            <span className="text-[10px] hidden sm:inline">Press Esc to close</span>
             <button
               onClick={onClose}
               className="p-1 hover:text-white transition-colors"
@@ -275,11 +273,11 @@ x-latency: 12ms
           </div>
         </div>
 
-        {/* Terminal Output Area */}
-        <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-cyber-bg/95">
+        {/* Output Area */}
+        <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-slate-950/95">
           {history.map((item, idx) => (
             <div key={idx} className="space-y-1">
-              <div className="flex items-center gap-2 text-cyber-teal">
+              <div className="flex items-center gap-2 text-blue-400">
                 <span>charles@prod-mesh:~$</span>
                 <span className="text-white font-semibold">{item.command}</span>
               </div>
@@ -289,9 +287,9 @@ x-latency: 12ms
           <div ref={bottomRef} />
         </div>
 
-        {/* Command Input Rail */}
-        <div className="p-3 bg-cyber-surface border-t border-cyber-border flex items-center gap-2">
-          <span className="text-cyber-teal font-bold">charles@prod-mesh:~$</span>
+        {/* Input */}
+        <div className="p-3 bg-slate-900/90 border-t border-slate-800 flex items-center gap-2">
+          <span className="text-blue-400 font-bold">charles@prod-mesh:~$</span>
           <input
             ref={inputRef}
             type="text"
@@ -299,7 +297,7 @@ x-latency: 12ms
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Type 'help', 'whoami', 'curl /v1/health'..."
-            className="flex-1 bg-transparent text-white focus:outline-none placeholder:text-cyber-muted/60"
+            className="flex-1 bg-transparent text-white focus:outline-none placeholder:text-slate-500"
           />
         </div>
       </div>
