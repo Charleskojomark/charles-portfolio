@@ -4,21 +4,12 @@
 
 @layer base {
   :root {
-    --bg-primary: #FFFFFF;
-    --bg-card: #FFFFFF;
-    --text-primary: #0F172A;
-    --text-muted: #64748B;
-    --border-color: #E2E8F0;
-    --brand-blue: #2563EB;
-  }
-
-  html.dark {
-    --bg-primary: #080C14;
-    --bg-card: #0F172A;
-    --text-primary: #F8FAFC;
+    --bg-primary: #060A12;
+    --bg-card: #0C1220;
+    --text-primary: #F0F4FF;
     --text-muted: #94A3B8;
-    --border-color: #1E293B;
-    --brand-blue: #3B82F6;
+    --border-color: #1A2540;
+    --brand-blue: #2563EB;
   }
 
   body {
@@ -34,18 +25,15 @@
 
   /* Custom subtle scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
   }
   ::-webkit-scrollbar-track {
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: #CBD5E1;
+    background: #1A2540;
     border-radius: 9999px;
-  }
-  html.dark ::-webkit-scrollbar-thumb {
-    background: #1E293B;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #2563EB;
@@ -54,49 +42,30 @@
 
 @layer utilities {
   .bg-grid-pattern {
-    background-image: radial-gradient(rgba(37, 99, 235, 0.08) 1px, transparent 1px);
-    background-size: 28px 28px;
-  }
-  html.dark .bg-grid-pattern {
-    background-image: radial-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px);
     background-size: 28px 28px;
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(12, 18, 32, 0.88);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(226, 232, 240, 0.95);
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-  }
-  html.dark .glass-card {
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(30, 41, 59, 0.9);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(26, 37, 64, 0.9);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
   }
 
   .text-gradient-sharp-blue {
-    background: linear-gradient(135deg, #1D4ED8 0%, #2563EB 50%, #00D2FF 100%);
+    background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 45%, #00C6FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-  html.dark .text-gradient-sharp-blue {
-    background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #00D2FF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .text-gradient-teal-indigo {
-    background: linear-gradient(135deg, #2563EB 0%, #3B82F6 50%, #00D2FF 100%);
+    background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #00C6FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-  html.dark .text-gradient-teal-indigo {
-    background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 50%, #00D2FF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .preserve-3d {
@@ -104,5 +73,13 @@
   }
   .perspective-1000 {
     perspective: 1000px;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
